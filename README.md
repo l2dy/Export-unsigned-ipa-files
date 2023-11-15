@@ -9,13 +9,17 @@ Follow steps 1️⃣,2️⃣ & 3️⃣ to successfully make an unsigned `.ipa` f
 #### `.xcworkspace` File
 * Open Terminal and write `xcodebuild -list -workspace <XCWORKSPACE>`, then replace the `<XCWORKSPACE>` with your `.xcworkspace` file and execute the command.
 
+#### SDKs
+
+* Run `xcodebuild -showsdks` and find the SDK to use.
+
 ### 2️⃣ Making a `.xcarchive` of your Project
 
 #### `.xcodeproj` File
-* In Terminal, write `xcodebuild archive -project <XCODEPROJ> -scheme <SCHEME> -archivePath unsigned.xcarchive -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO` where `<XCODEPROJ>` and `<SCHEME>` are replaced with the xcodeproj file and scheme name respectively.* Then, execute the command.  
+* In Terminal, write `xcodebuild archive -project <XCODEPROJ> -scheme <SCHEME> -sdk <SDK> -archivePath unsigned.xcarchive -configuration Release CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO` where `<XCODEPROJ>` and `<SCHEME>` are replaced with the xcodeproj file and scheme name respectively.* Then, execute the command.  
 
 #### `.xcworkspace` File
-* In Terminal, write `xcodebuild -workspace <XCWORKSPACE> -scheme <SCHEME> -configuration Release clean archive -archivePath unsigned.xcarchive CODE_SIGN_IDENTITY=”” CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO`  where `<XCWORKSPACE>` and `<SCHEME>` are replaced with the xcworkspace file and scheme name respectively.* Then, execute the command.  
+* In Terminal, write `xcodebuild -workspace <XCWORKSPACE> -scheme <SCHEME> -sdk <SDK> -configuration Release clean archive -archivePath unsigned.xcarchive CODE_SIGN_IDENTITY=”” CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO`  where `<XCWORKSPACE>` and `<SCHEME>` are replaced with the xcworkspace file and scheme name respectively.* Then, execute the command.  
 
 > *If the scheme contains spaces, make sure to use quotes!
 
